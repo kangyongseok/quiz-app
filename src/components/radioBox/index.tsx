@@ -20,7 +20,7 @@ function RadioBox({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setAnswer(e.target.value);
   };
-  console.log(answer, label);
+
   if (viewType === 'note') {
     return (
       <div className="flex items-center">
