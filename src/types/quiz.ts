@@ -2,7 +2,7 @@ export interface QuizFormType {
   question: string;
   answerList: string[];
   answer: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export interface Query {
@@ -14,4 +14,9 @@ export interface ResponseQuiz {
   correct_answer: string;
   incorrect_answers: string[];
   question: string;
+}
+
+export interface QuizResultType {
+  correctQuiz: QuizFormType[],
+  incorrectQuiz: QuizFormType[]
 }
