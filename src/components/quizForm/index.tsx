@@ -29,6 +29,12 @@ function QuizForm({
         <button className="bg-blue-500 text-white font-bold py-2 px-4 rounded mt-4 disabled:opacity-25" disabled={!selectedAnswer} onClick={onClick}>
           다음
         </button>
+        {
+          selectedAnswer && (
+            <p className={`${selectedAnswer === answer ? "text-blue-600" : "text-red-600"}`}>{selectedAnswer === answer ? '정답입니다.' : '틀렸습니다.'}</p>
+          )
+        }
+
       </div>
     </div>
   )
