@@ -1,13 +1,12 @@
+import type { Query, ResponseQuiz } from "@/types/quiz";
+
 import { useEffect, useState } from "react";
 
-interface Query {
-  url: string;
-  options?: RequestInit;
-}
+
 
 export function useQuery(query: Query) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState<ResponseQuiz[] | []>([]);
+  const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(Error || null);
 
   useEffect(() => {
@@ -32,7 +31,7 @@ export function useQuery(query: Query) {
 
   return {
     data,
-    loading,
+    isLoading,
     error
   }
 }
