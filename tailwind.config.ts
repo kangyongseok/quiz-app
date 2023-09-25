@@ -16,6 +16,9 @@ const config: Config = {
       addComponents({
         '.flex_screen_center': {
           '@apply flex items-center justify-center w-screen h-screen': ''
+        },
+        '.common_check_box': {
+          '@apply w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded': ''
         }
       })
     })
