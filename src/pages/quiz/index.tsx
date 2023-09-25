@@ -26,7 +26,7 @@ function Quiz() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       {
-        data && <QuizForm {...quizData[currentQuiz]} onClick={handleClickNext} />
+        data && !isLoading && <QuizForm {...quizData[currentQuiz]} onClick={handleClickNext} />
       }
     </Suspense>
   )
