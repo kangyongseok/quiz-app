@@ -11,6 +11,7 @@ function QuizForm({
   answerList,
   answer,
   viewType,
+  incorrectAnswer,
   onClick
 }: QuizFormType) {
   const selectedAnswer = useAtomValue(selectedAnswerAtom);
@@ -31,13 +32,14 @@ function QuizForm({
                 label={list}
                 viewType={viewType}
                 answer={answer}
+                incorrectAnswer={incorrectAnswer}
               />
             </li>
           ))}
         </ul>
         {!viewType && (
           <button
-            className="bg-blue-500 text-white font-bold py-2 px-4 rounded mt-4 disabled:opacity-25"
+            className="default_button"
             disabled={!selectedAnswer}
             onClick={onClick}
           >

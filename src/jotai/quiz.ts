@@ -10,5 +10,6 @@ export const endTimeAtom = atomWithStorage('quizEnd', dayjs());
 
 export const quizResultAtom = atomWithStorage<QuizResultType>('quizResult', {
   correctQuiz: [],
-  incorrectQuiz: []
+  incorrectQuiz: [],
+  incorrectQuizAnswers: []
 });

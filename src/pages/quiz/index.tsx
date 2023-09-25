@@ -45,7 +45,8 @@ function Quiz() {
     } else {
       setAnswerResult((prevData) => ({
         ...prevData,
-        incorrectQuiz: [...prevData.incorrectQuiz, quizData[currentQuiz]]
+        incorrectQuiz: [...prevData.incorrectQuiz, quizData[currentQuiz]],
+        incorrectQuizAnswers: [...prevData.incorrectQuizAnswers, answer]
       }));
     }
   };

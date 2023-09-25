@@ -7,11 +7,13 @@ import { selectedAnswerAtom } from '@/jotai/quiz';
 function RadioBox({
   label,
   viewType,
-  answer
+  answer,
+  incorrectAnswer
 }: {
   label: string;
   viewType?: 'note';
   answer: string;
+  incorrectAnswer?: string;
 }) {
   const setAnswer = useSetAtom(selectedAnswerAtom);
 
@@ -28,11 +30,14 @@ function RadioBox({
           type="radio"
           value={label}
           name={`default-radio-${answer}`}
-          className="common_radio_box cursor-pointer"
+          className="common_radio_box"
+          disabled={answer !== label}
         />
         <label
           htmlFor={label}
-          className="ml-2 text-sm font-medium text-gray-900 cursor-pointer"
+          className={`ml-2 text-sm font-medium ${
+            incorrectAnswer === label ? 'text-red-600' : 'text-gray-900'
+          }`}
         >
           {label}
         </label>

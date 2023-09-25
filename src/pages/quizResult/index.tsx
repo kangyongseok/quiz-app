@@ -37,7 +37,7 @@ function QuizResult() {
             {quizResult.incorrectQuiz.length}
           </p>
           <Link href="/inCorrectNote">
-            <button>오답노트</button>
+            <button className="default_button">오답노트</button>
           </Link>
         </div>
       </div>
