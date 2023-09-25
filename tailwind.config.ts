@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss'
 
+import plugin from 'tailwindcss/plugin'
+
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -9,6 +11,14 @@ const config: Config = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addComponents }) => {
+      addComponents({
+        '.flex_screen_center': {
+          '@apply flex items-center justify-center w-screen h-screen': ''
+        }
+      })
+    })
+  ],
 }
 export default config
