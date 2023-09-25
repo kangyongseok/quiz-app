@@ -2,6 +2,7 @@ export interface QuizFormType {
   question: string;
   answerList: string[];
   answer: string;
+  viewType?: 'note';
   onClick?: () => void;
 }
 
@@ -17,6 +18,6 @@ export interface ResponseQuiz {
 }
 
 export interface QuizResultType {
-  correctQuiz: QuizFormType[],
-  incorrectQuiz: QuizFormType[]
+  correctQuiz: QuizFormType[];
+  incorrectQuiz: QuizFormType[];
 }

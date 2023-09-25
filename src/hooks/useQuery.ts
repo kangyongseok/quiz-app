@@ -1,8 +1,6 @@
-import type { Query, ResponseQuiz } from "@/types/quiz";
+import type { Query, ResponseQuiz } from '@/types/quiz';
 
-import { useEffect, useState } from "react";
-
-
+import { useEffect, useState } from 'react';
 
 export function useQuery(query: Query) {
   const [data, setData] = useState<ResponseQuiz[] | []>([]);
@@ -14,24 +12,24 @@ export function useQuery(query: Query) {
       try {
         const response = await fetch(query.url, query.options);
         if (response.status === 200) {
-          const getData = await response.json()
-          setData(await getData.results)
+          const getData = await response.json();
+          setData(await getData.results);
         } else {
-          setError(new Error(response.statusText))
+          setError(new Error(response.statusText));
         }
-      } catch(err) {
-        setError(err as Error)
+      } catch (err) {
+        setError(err as Error);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
     fetchData();
-  }, [])
+  }, []);
 
   return {
     data,
     isLoading,
     error
-  }
+  };
 }

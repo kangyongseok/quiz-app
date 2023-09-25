@@ -1,1 +1,1 @@
-export const QUIZ_COUNT = 5
+export const QUIZ_COUNT = 5;
