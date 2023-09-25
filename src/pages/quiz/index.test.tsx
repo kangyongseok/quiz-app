@@ -1,9 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Quiz from '@/pages/quiz';
-import QuizForm from '@/components/quizForm';
 import { useQuery } from '@/hooks/useQuery';
-import { Provider } from 'jotai';
-import { QUIZ_COUNT } from '@/constants/quiz';
 
 jest.mock('../../hooks/useQuery', () => ({ useQuery: jest.fn() }))
 jest.mock('next/router', () => jest.requireActual('next-router-mock'))
