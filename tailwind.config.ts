@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss'
 
+import plugin from 'tailwindcss/plugin'
+
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -7,14 +9,19 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-    },
+    extend: {},
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addComponents }) => {
+      addComponents({
+        '.flex_screen_center': {
+          '@apply flex items-center justify-center w-screen h-screen': ''
+        },
+        '.common_check_box': {
+          '@apply w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded': ''
+        }
+      })
+    })
+  ],
 }
 export default config
