@@ -1,5 +1,7 @@
 import { useAtomValue } from 'jotai'
 
+import QuizResultCorrectChart from '@/components/quizResultCorrectChart'
+
 import { QUIZ_COUNT } from '@/constants/quiz'
 
 import { getDiffTimeString } from '@/utils/getDiffTimeString'
@@ -33,6 +35,9 @@ function QuizResult() {
             {quizResult.incorrectQuiz.length}
           </p>
         </div>
+      </div>
+      <div>
+        <QuizResultCorrectChart />
       </div>
     </div>
   )
