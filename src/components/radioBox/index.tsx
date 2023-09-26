@@ -38,9 +38,8 @@ function RadioBox({
           className={`ml-2 text-sm font-medium ${
             incorrectAnswer === label ? 'text-red-600' : 'text-gray-900'
           }`}
-        >
-          {label}
-        </label>
+          dangerouslySetInnerHTML={{ __html: label }}
+        />
       </div>
     );
   }
