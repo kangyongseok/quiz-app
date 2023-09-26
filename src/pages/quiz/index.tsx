@@ -14,6 +14,7 @@ import { QUIZ_COUNT } from '@/constants/quiz';
 
 import { shuffle } from '@/utils/shuffle';
 import { endTimeAtom, quizResultAtom, selectedAnswerAtom } from '@/jotai/quiz';
+import { ResponseQuiz } from '@/types/quiz';
 
 function Quiz() {
   const router = useRouter();
@@ -24,16 +25,16 @@ function Quiz() {
   const setEndTime = useSetAtom(endTimeAtom);
   const resetSelectedAnswer = useResetAtom(selectedAnswerAtom);
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading } = useQuery<ResponseQuiz[]>({
     url: `https://opentdb.com/api.php?amount=${QUIZ_COUNT}&difficulty=medium&type=multiple`
   });
 
   const quizData = useMemo(() => {
-    return data.map((quiz) => ({
+    return data?.map((quiz) => ({
       question: quiz.question,
       answerList: shuffle([...quiz.incorrect_answers, quiz.correct_answer]),
       answer: quiz.correct_answer
-    }));
+    })) || [];
   }, [data]);
 
   const setQuizResultData = () => {

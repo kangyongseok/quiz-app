@@ -2,8 +2,8 @@ import type { Query, ResponseQuiz } from '@/types/quiz';
 
 import { useEffect, useState } from 'react';
 
-export function useQuery(query: Query) {
-  const [data, setData] = useState<ResponseQuiz[] | []>([]);
+export function useQuery<T>(query: Query) {
+  const [data, setData] = useState<T | null>(null);
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(Error || null);
 
@@ -25,7 +25,7 @@ export function useQuery(query: Query) {
     };
 
     fetchData();
-  }, []);
+  }, [query.url, query.options]);
 
   return {
     data,
