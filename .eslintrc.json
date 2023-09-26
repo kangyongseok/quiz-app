@@ -13,7 +13,9 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "prettier",
+        "testing-library"
     ],
     "rules": {
       "react/react-in-jsx-scope": "off",
@@ -24,6 +26,8 @@
       "@typescript-eslint/no-unused-vars": "error",
       "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/strict-boolean-expressions": "off",
+      "@typescript-eslint/no-floating-promises": "off",
+      "prettier/prettier": "error",
       "indent": [
         "error",
         2,
@@ -86,5 +90,15 @@
           ]
         }
       ]
-    }
+    },
+    "overrides": [
+      // Only uses Testing Library lint rules in test files
+      {
+        "files": [
+          "**/__tests__/**/*.[jt]s?(x)",
+          "**/?(*.)+(spec|test).[jt]s?(x)"
+        ],
+        "extends": ["plugin:testing-library/react"]
+      }
+    ]
 }
