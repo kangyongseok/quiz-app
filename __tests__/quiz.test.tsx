@@ -25,7 +25,13 @@ jest.mock('../src/hooks/useQuery', () => ({
 }));
 
 describe('Quiz', () => {
-  it('다음질문', async () => {
+  it('답안목록에 정답항목이 포함되어 있는지', async () => {
+    render(<Quiz />)
+    await screen.findByText('거북선으로 왜군을 물리친 장군은?');
+    expect(screen.getByText('이순신')).toBeInTheDocument()
+  })
+  
+  it('다음 퀴즈가 있으면 현재 퀴즈 풀이 후 다음 퀴즈 노출', async () => {
     render(<Quiz />)
 
     await screen.findByText('거북선으로 왜군을 물리친 장군은?');
