@@ -14,6 +14,7 @@ import { QUIZ_COUNT } from '@/constants/quiz';
 
 import { shuffle } from '@/utils/shuffle';
 import { endTimeAtom, quizResultAtom, selectedAnswerAtom } from '@/jotai/quiz';
+
 import { ResponseQuiz } from '@/types/quiz';
 
 function Quiz() {

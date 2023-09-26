@@ -1,4 +1,4 @@
-import type { Query, ResponseQuiz } from '@/types/quiz';
+import type { Query } from '@/types/quiz';
 
 import { useEffect, useState } from 'react';
 
