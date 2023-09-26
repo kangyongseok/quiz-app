@@ -1,9 +1,10 @@
 import type { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 
 export function getDiffTimeString(startTime: Dayjs, endTime: Dayjs): string {
-  const diffInSeconds = endTime.diff(startTime, 'second');
-  const hours = Math.floor(diffInSeconds / 3600);
-  const remainingSecondsAfterHours = diffInSeconds % 3600;
+  const diff = dayjs(endTime).diff(startTime, 'second');
+  const hours = Math.floor(diff / 3600);
+  const remainingSecondsAfterHours = diff % 3600;
   const minutes = Math.floor(remainingSecondsAfterHours / 60);
   const seconds = remainingSecondsAfterHours % 60;
 
