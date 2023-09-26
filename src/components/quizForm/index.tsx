@@ -25,7 +25,7 @@ function QuizForm({
         <ul>
           {answerList?.map((list, i) => (
             <li
-              key={`answer-${list}`}
+              key={`answer-${list}-${i}`}
               className="mt-1"
             >
               <RadioBox
