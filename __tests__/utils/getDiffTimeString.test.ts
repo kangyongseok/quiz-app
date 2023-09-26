@@ -1,6 +1,8 @@
-import { getDiffTimeString } from '@/utils/getDiffTimeString';
-import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
+
+import dayjs from 'dayjs';
+
+import { getDiffTimeString } from '@/utils/getDiffTimeString';
 
 describe('getDiffTimeString', () => {
   it('~초 리턴', () => {

@@ -1,4 +1,4 @@
-import { shuffle } from "@/utils/shuffle";
+import { shuffle } from '@/utils/shuffle';
 
 describe('shuffle', () => {
   it('원래 배열과 비교하여 셔플 되었는지 확인', () => {
