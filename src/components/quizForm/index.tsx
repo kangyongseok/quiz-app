@@ -37,7 +37,7 @@ function QuizForm({
             </li>
           ))}
         </ul>
-        {!viewType && (
+        {viewType !== 'note' && (
           <button
             className="default_button"
             disabled={!selectedAnswer}
