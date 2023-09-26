@@ -13,9 +13,8 @@ import { useQuery } from '@/hooks/useQuery';
 import { QUIZ_COUNT } from '@/constants/quiz';
 
 import { shuffle } from '@/utils/shuffle';
+import { type ResponseQuiz } from '@/types/quiz';
 import { endTimeAtom, quizResultAtom, selectedAnswerAtom } from '@/jotai/quiz';
-
-import { ResponseQuiz } from '@/types/quiz';
 
 function Quiz() {
   const router = useRouter();
@@ -31,11 +30,13 @@ function Quiz() {
   });
 
   const quizData = useMemo(() => {
-    return data?.map((quiz) => ({
-      question: quiz.question,
-      answerList: shuffle([...quiz.incorrect_answers, quiz.correct_answer]),
-      answer: quiz.correct_answer
-    })) || [];
+    return (
+      data?.map((quiz) => ({
+        question: quiz.question,
+        answerList: shuffle([...quiz.incorrect_answers, quiz.correct_answer]),
+        answer: quiz.correct_answer
+      })) ?? []
+    );
   }, [data]);
 
   const setQuizResultData = () => {
